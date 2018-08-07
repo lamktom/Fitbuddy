@@ -1,0 +1,44 @@
+{
+	"muscle": {
+		"biceps": [
+			{
+				"workoutName": "Incline Hammer Curls",
+				"musclesWorked": "Biceps",
+				"equipment": "Dumbbell"
+			}, 
+			{
+				"workoutName": "Wide-Grip Standing Barbell Curl",
+				"musclesWorked": "Biceps",
+				"equipment": "Barbell"
+			}
+		],
+		"triceps": [
+
+		],
+		"chest": [
+
+		], 
+		"abs": [
+
+		], 
+		"quads": [
+
+		], 
+		"calves": [
+
+		], 
+		"traps": [
+
+		], 
+		"lats": [
+
+		],
+		"hamstrings": [
+
+		]
+	} //end workouts object 
+}
+
+// sources: 
+// muscle selection: https://www.bodybuilding.com/exercises
+// biceps: https://www.bodybuilding.com/exercises/muscle/biceps 
