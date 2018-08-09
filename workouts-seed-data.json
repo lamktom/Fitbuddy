@@ -4,37 +4,181 @@
 			{
 				"workoutName": "Incline Hammer Curls",
 				"musclesWorked": "Biceps",
-				"equipment": "Dumbbell"
+				"equipment": "Dumbbell",
+				"video": "https://www.bodybuilding.com/exercises/incline-hammer-curls"
 			}, 
 			{
 				"workoutName": "Wide-Grip Standing Barbell Curl",
 				"musclesWorked": "Biceps",
-				"equipment": "Barbell"
+				"equipment": "Barbell",
+				"video": "https://www.bodybuilding.com/exercises/wide-grip-standing-barbell-curl"
+			},
+			{
+				"workoutName": "Zottman Curl",
+				"musclesWorked": "Biceps",
+				"equipment": "Dumbbell",
+				"video": "https://www.bodybuilding.com/exercises/zottman-curl" 
 			}
 		],
 		"triceps": [
-
+			{
+				"workoutName": "EZ-Bar Skullcrusher",
+				"musclesWorked": "Triceps",
+				"equipment": "EZ-Bar",
+				"video": "https://www.bodybuilding.com/exercises/ez-bar-skullcrusher"
+			}, 
+			{
+				"workoutName": "Close-Grip Barbell Bench Press",
+				"musclesWorked": "Triceps",
+				"equipment": "Barbell",
+				"video": "https://www.bodybuilding.com/exercises/close-grip-barbell-bench-press"
+			},
+			{
+				"workoutName": "Seated Triceps Press",
+				"musclesWorked": "Triceps",
+				"equipment": "Dumbbell",
+				"video": "https://www.bodybuilding.com/exercises/seated-triceps-press"
+			}
 		],
 		"chest": [
-
+			{
+				"workoutName": "Barbell Bench Press - Medium Grip",
+				"musclesWorked": "Chest (pectoralis)",
+				"equipment": "Barbell",
+				"video": "https://www.bodybuilding.com/exercises/barbell-bench-press-medium-grip"
+			},
+			{
+				"workoutName": "Pushups",
+				"musclesWorked": "Chest (pectoralis)",
+				"equipment": "Body only",
+				"video": "https://www.bodybuilding.com/exercises/pushups"
+			},
+			{
+				"workoutName": "Incline Dumbbell Press",
+				"musclesWorked": "Chest (pectoralis)",
+				"equipment": "Dumbbell",
+				"video": "https://www.bodybuilding.com/exercises/incline-dumbbell-press"
+			}
 		], 
 		"abs": [
-
+			{
+				"workoutName": "Standing Cable Lift",
+				"musclesWorked": "Abs",
+				"equipment": "Cable",
+				"video": "https://www.bodybuilding.com/exercises/standing-cable-lift"
+			},
+			{
+				"workoutName": "Plank",
+				"musclesWorked": "Abs",
+				"equipment": "Body only",
+				"video": "https://www.bodybuilding.com/exercises/plank"
+			},
+			{
+				"workoutName": "Plate Twist",
+				"musclesWorked": "Abs",
+				"equipment": "Weight plate",
+				"video": "https://www.bodybuilding.com/exercises/plate-twist"
+			}
 		], 
 		"quads": [
-
+			{
+				"workoutName": "Barbell Full Squat",
+				"musclesWorked": "Quads",
+				"equipment": "Barbell",
+				"video": "https://www.bodybuilding.com/exercises/barbell-full-squat"
+			},
+			{
+				"workoutName": "Single-Leg Press",
+				"musclesWorked": "Quads",
+				"equipment": "Machine",
+				"video": "https://www.bodybuilding.com/exercises/single-leg-press"
+			},
+			{
+				"workoutName": "Barbell Walking Lunge",
+				"musclesWorked": "Quads",
+				"equipment": "Barbell",
+				"video": "https://www.bodybuilding.com/exercises/barbell-walking-lunge"
+			}
 		], 
 		"calves": [
-
+			{
+				"workoutName": "Smith Machine Calf Raise",
+				"musclesWorked": "Calves",
+				"equipment": "Machine",
+				"video": "https://www.bodybuilding.com/exercises/smith-machine-calf-raise"
+			},
+			{
+				"workoutName": "Calf Press",
+				"musclesWorked": "Calves",
+				"equipment": "Machine",
+				"video": "https://www.bodybuilding.com/exercises/calf-press"
+			},
+			{
+				"workoutName": "Standing Dumbbell Calf Raise",
+				"musclesWorked": "Calves",
+				"equipment": "Dumbbell",
+				"video": "https://www.bodybuilding.com/exercises/standing-dumbbell-calf-raise"
+			}
 		], 
 		"traps": [
-
+			{
+				"workoutName": "Standing Dumbbell Upright Row",
+				"musclesWorked": "Traps",
+				"equipment": "Dumbbell",
+				"video": "https://www.bodybuilding.com/exercises/standing-dumbbell-upright-row"
+			},
+			{
+				"workoutName": "Kettlebell Sumo High Pull",
+				"musclesWorked": "Traps",
+				"equipment": "Kettlebell",
+				"video": "https://www.bodybuilding.com/exercises/kettlebell-sumo-high-pull"
+			},
+			{
+				"workoutName": "Dumbbell Shrug",
+				"musclesWorked": "Traps",
+				"equipment": "Dumbbell",
+				"video": "https://www.bodybuilding.com/exercises/dumbbell-shrug"
+			}
 		], 
 		"lats": [
-
+			{
+				"workoutName": "Pullups",
+				"musclesWorked": "Lats",
+				"equipment": "Body only",
+				"video": "https://www.bodybuilding.com/exercises/pullups"
+			},
+			{
+				"workoutName": "Wide-Grip Lat Pulldowns",
+				"musclesWorked": "Lats",
+				"equipment": "Cable",
+				"video": "https://www.bodybuilding.com/exercises/wide-grip-lat-pulldown"
+			},
+			{
+				"workoutName": "Shotgun Row",
+				"musclesWorked": "Lats",
+				"equipment": "Cable",
+				"video": "https://www.bodybuilding.com/exercises/shotgun-row"
+			}
 		],
 		"hamstrings": [
-
+			{
+				"workoutName": "Barbell Deadlift",
+				"musclesWorked": "Hamstrings",
+				"equipment": "Barbell",
+				"video": "https://www.bodybuilding.com/exercises/barbell-deadlift"
+			},
+			{
+				"workoutName": "Sumo Deadlift",
+				"musclesWorked": "Hamstrings",
+				"equipment": "Barbell",
+				"video": "https://www.bodybuilding.com/exercises/sumo-deadlift"
+			},
+			{
+				"workoutName": "Lying Leg Curls",
+				"musclesWorked": "Hamstrings",
+				"equipment": "Machine",
+				"video": "https://www.bodybuilding.com/exercises/lying-leg-curls"
+			}
 		]
 	} //end workouts object 
 }
