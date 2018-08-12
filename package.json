@@ -1,0 +1,20 @@
+{
+  "name": "fitbuddy",
+  "version": "1.0.0",
+  "description": "App to search workouts for specific muscle groups",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamktom/Fitbuddy.git"
+  },
+  "author": "Tom Lam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lamktom/Fitbuddy/issues"
+  },
+  "homepage": "https://github.com/lamktom/Fitbuddy#readme"
+}
