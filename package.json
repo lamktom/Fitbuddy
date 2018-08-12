@@ -4,7 +4,7 @@
   "description": "App to search workouts for specific muscle groups",
   "main": "server.js",
   "scripts": {
-    "test": "mocha test",
+    "test": "mocha",
     "start": "node server.js"
   },
   "repository": {
@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/lamktom/Fitbuddy/issues"
   },
-  "homepage": "https://github.com/lamktom/Fitbuddy#readme"
+  "homepage": "https://github.com/lamktom/Fitbuddy#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0"
+  }
 }
