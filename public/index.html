@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Fitbuddy</title>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<link href="grid.css" rel="stylesheet" type="text/css"/>
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 </head>
+
 <body>
-	<p>
-		Hello World!
-	</p>
+	<header role="banner">	
+		<nav role="navigation">
+			<div class="title">Fitbuddy</div>
+
+			<!-- maybe try using <a>? -->
+			<div id="nav-add">Add</div>
+			<div id="nav-update">Update</div>
+			<div id="nav-delete">Delete</div>
+		</nav>
+	</header>
+
+	<main role="main">
+		<!-- maybe put title name inside container image? -->
+		<div class="container"></div>
+
+		<!-- list of muscles -->
+		<div class="muscles">
+			<div id="muscles-biceps">Biceps</div>
+			<div id="muscles-triceps">Triceps</div>
+			<div id="muscles-chest">Chest</div>
+			<div id="muscles-quads">Quads</div>
+			<div id="muscles-calves">Calves</div>
+			<div id="muscles-traps">Traps</div>
+			<div id="muscles-lats">Lats</div>
+			<div id="muscles-hamstrings">Hamstrings</div>
+		</div>
+	</main>
+
 </body>
 </html>

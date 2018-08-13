@@ -1,2 +1,4 @@
+# tells Travis CI to treat project as a Node project 
 language: node_js
 node_js: node
+
