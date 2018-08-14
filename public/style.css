@@ -2,6 +2,11 @@
 	box-sizing: border-box;
 }
 
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
 nav {
 	height: 80px; 
 	width: 100%;
@@ -9,10 +14,6 @@ nav {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	top: 0;
-	left: 0;
-	right: 0;
-	position: fixed;
 	padding-left: 2%;
 	padding-right: 2%;
 }
@@ -32,11 +33,25 @@ nav {
 	font-family: 'Righteous', cursive;
 }
 
-.container {
+.deadlift-img {
 	background-image: url('./deadlift.jpg'); 
-	height: 700px;
-	width: 100%;
+	height: 1000px;
+	width: 70%;
 	background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  float: right;
+}
+
+.muscle-groups {
+	width: 30%;
+	height:1000px;
+	float: left;
+	font-size: 20px;
+	font-family: 'Righteous', cursive;
+}
+
+.biceps, .triceps, .chest, .quads, .calves, .traps, .lats, .hamstrings {
+	font-family: 'Righteous', cursive;
+	color: red;
 }
