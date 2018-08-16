@@ -180,9 +180,6 @@
 				"video": "https://www.bodybuilding.com/exercises/lying-leg-curls"
 			}
 		]
-	} //end workouts object 
+	} 
 }
 
-// sources: 
-// muscle selection: https://www.bodybuilding.com/exercises
-// biceps: https://www.bodybuilding.com/exercises/muscle/biceps 
