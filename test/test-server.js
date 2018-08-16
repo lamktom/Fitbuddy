@@ -1,6 +1,7 @@
+"use strict"; 
+
 const chai = require("chai"); 
 const chaiHttp = require("chai-http"); 
-
 const { app, runServer, closeServer } = require("../server"); 
 
 // lets us use expect style syntax in tests
@@ -10,26 +11,24 @@ const expect = chai.expect;
 // so we can make HTTP requests in our tests 
 chai.use(chaiHttp); 
 
-decribe("Workouts", function() {
-	// start server before running tests 
-	before(function() {
-		return runServer(); 
-	});
+describe("index page", function() {
 
-	// close server after tests 
-	after(function() {
-		return closeServer(); 
-	});
+	// // start server before running tests 
+	// before(function() {
+	// 	return runServer(); 
+	// });
 
-	it("should load the home page to select workouts on GET", function() {
+	// // close server after tests 
+	// after(function() {
+	// 	return closeServer(); 
+	// });
+
+	it("should load html", function() {
 		return chai 
-			.request(add)
+			.request(app)
 			.get("/")
 			.then(function(res) {
 				expect(res).to.have.status(200); 
 			}); // end then 	
 	}); // end it  
-
-
-
 }); // end describe 
