@@ -1,7 +1,6 @@
 {
 	"workouts": [
 		{
-			"_id": ,
 			"workoutName": "Incline Hammer Curls",
 			"musclesWorked": "Biceps",
 			"equipment": "Dumbbell",

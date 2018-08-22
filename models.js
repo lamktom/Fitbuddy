@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const workoutSchema = mongoose.Schema({
 	workouts: [
-		workoutName: { type: String, required: true },
+		workoutName: { type: String, required: true }, 
 		musclesWorked: { type: String, required: true },
 		equipment: { type: String, required: true },
 		video: { type: String }
