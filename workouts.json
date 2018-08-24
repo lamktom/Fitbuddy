@@ -16,3 +16,4 @@
 {"_id":{"$oid":"5b7e2f44fb6fc007d8be8075"},"workout":{"workoutName":"Wide-Grip Lat Pulldowns","musclesWorked":"Lats","equipment":"Cable","video":"https://www.bodybuilding.com/exercises/wide-grip-lat-pulldown"}}
 {"_id":{"$oid":"5b7e2f53fb6fc007d8be8079"},"workout":{"workoutName":"Barbell Deadlift","musclesWorked":"Hamstrings","equipment":"Barbell","video":"https://www.bodybuilding.com/exercises/barbell-deadlift"}}
 {"_id":{"$oid":"5b7e2f64fb6fc007d8be8080"},"workout":{"workoutName":"Lying Leg Curls","musclesWorked":"Hamstrings","equipment":"Machine","video":"https://www.bodybuilding.com/exercises/lying-leg-curls"}}
+
