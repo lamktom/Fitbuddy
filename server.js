@@ -17,9 +17,9 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/public/index.html");
-// });
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 // GET request to /workouts 
 app.get("/workouts", (req, res) => {
@@ -109,48 +109,43 @@ app.use("*", function(req, res) {
   res.status(404).json({ message: "404 Not Found" });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // declare server 
 let server; 
 
-function runServer() {
-  const port = process.env.PORT || 8080; 
+//connects to database and starts server 
+function runServer(databaseUrl, port = PORT) {
   return new Promise((resolve, reject) => {
-    server = app
-    .listen(port, () => {
-      console.log(`Your app is listening on port ${port}`); 
-      resolve(server); 
-    })
-    .on('error', err => {
-      reject(err); 
-    });
+    mongoose.connect(
+      databaseUrl, 
+      err => {
+        if (err) {
+          return reject(err);
+        }
+        server = app
+          .listen(port, () => {
+            console.log(`Your app is listening on port ${port}`);
+            resolve(); 
+          })
+          .on("error", err => {
+            mongoose.disconnect();
+            reject(err); 
+          });
+      }
+    );
   });
 } // end runServer 
 
+// closes server and returns promise
 function closeServer() {
-  return new Promise((resolve, reject) => {
-    console.log("Closing server");
-    server.close(err => {
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve();
+  return mongoose.disconnect().then(() => {
+    return new Promise((resolve, reject) => {
+      console.log("Closing server");
+      server.close(err => {
+        if (err) {
+          return reject(err);
+        }
+        resolve();
+      });
     });
   });
 } // end closeServer
@@ -158,7 +153,7 @@ function closeServer() {
 // if server.js is called directly (aka, with `node server.js`), this block
 // runs. but we also export the runServer command so other code (for instance, test code) can start the server as needed.
 if (require.main === module) {
-  runServer().catch(err => console.error(err));
+  runServer(DATABASE_URL).catch(err => console.error(err)); 
 }
 
 module.exports = { app, runServer, closeServer };
