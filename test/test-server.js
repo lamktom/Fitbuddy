@@ -11,24 +11,44 @@ const expect = chai.expect;
 // so we can make HTTP requests in our tests 
 chai.use(chaiHttp); 
 
-describe("index page", function() {
+describe("Workouts", function() {
+	// start server before running tests 
+	before(function() {
+		return runServer(); 
+	});
 
-	// // start server before running tests 
-	// before(function() {
-	// 	return runServer(); 
-	// });
+	// close server after tests 
+	after(function() {
+		return closeServer(); 
+	});
 
-	// // close server after tests 
-	// after(function() {
-	// 	return closeServer(); 
-	// });
-
-	it("should load html", function() {
+	it("should list workouts on GET", function() {
 		return chai 
 			.request(app)
-			.get("/")
+			.get("/workouts")
 			.then(function(res) {
 				expect(res).to.have.status(200); 
-			}); // end then 	
-	}); // end it  
+				expect(res).to.be.json;
+			}); 
+	}); // end it for GET 
+
+	it("should add a workout on POST", function() {
+		const newWorkout = { workoutName: "test", checked: false };
+		return chai 
+			.request(app)
+			.post("/workouts")
+			.send(newWorkout)
+			.then(function(res) {
+				expect(res).to.have.status(201);
+        expect(res).to.be.json;
+        expect(res.body).to.be.a("object");
+        expect(res.body).to.include.keys("id", "workoutName", "checked");
+        expect(res.body.id).to.not.equal(null);
+			});
+
+	}); // end it for POST
+
+
+
+
 }); // end describe 
