@@ -11,24 +11,23 @@ mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL } = require("./config");
 // import Workout from model.js
 const { Workout } = require("./models");
-
 const app = express();
+const jsonParser = bodyParser.json()
+
 app.use(express.json()); 
-
 app.use(express.static('public'));
-
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
-
 // GET request to /workouts 
 app.get("/workouts", (req, res) => {
   Workout.find()
     .then(workouts => {
-      res.json({
-        workouts: workouts.map(workout => workout.serialize())
-      });
-    })
+  console.log(workouts); // should log an array of posts    
+  const results = workouts.map(workout => workout.serialize());
+  console.log(results); // should log an array of "serialized" posts
+  res.json(results);
+})
     .catch(err => {
       console.error(err);
       // respond with status 500 and show error message 
@@ -51,18 +50,20 @@ app.post("/workouts", (req, res) => {
   const requiredFields = ["workoutName", "musclesWorked", "equipment"]; 
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
+    console.log(req.body.workout);
+    console.log(req.body.workoutName);
     if (!(field in req.body)) {
       const message = `Missing ${field} in request body`; 
       console.error(message); 
       return res.status(400).send(message); 
     }
   }
-
-  Workout.create({
+  Workout.create({ workout: {
     workoutName: req.body.workoutName,
     musclesWorked: req.body.musclesWorked,
     equipment: req.body.equipment,
     video: req.body.video
+    }
   })
     .then(workout => res.status(201).json(workout.serialize()))
     .catch(err => {
@@ -72,7 +73,8 @@ app.post("/workouts", (req, res) => {
 }); 
 
 // PUT request
-app.put("/workouts/:id", (req, res) => {
+
+app.put("/workouts/:id", jsonParser, (req, res) => {
   // ensure id in request path and the one in request body match 
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     const message = 
@@ -81,18 +83,16 @@ app.put("/workouts/:id", (req, res) => {
       console.error(message);
       return res.status(400).json({ message: message }); 
   }
-
   const toUpdate = {};
   const updateableFields = ["workoutName", "musclesWorked", "equipment", "video"];
-
   updateableFields.forEach(field => {
-    if (field in req.body) {
-      toUpdate[field] = req.body[field];
+    if (field in req.body.workout) {
+      toUpdate[field] = req.body.workout[field];
     }
   });
-
+  console.log(toUpdate);
   Workout
-    .findbyIdAndUpdate(req.params.id, { $set: toUpdate })
+    .update({_id:req.params.id}, {$set: {"workout" : toUpdate}})
     .then(workout => res.status(204).end())
     .catch(err => res.status(500).json({ message: "Whoops, something went wrong" }));
 });
@@ -111,7 +111,6 @@ app.use("*", function(req, res) {
 
 // declare server 
 let server; 
-
 //connects to database and starts server 
 function runServer(databaseUrl, port = PORT) {
   return new Promise((resolve, reject) => {
@@ -134,7 +133,6 @@ function runServer(databaseUrl, port = PORT) {
     );
   });
 } // end runServer 
-
 // closes server and returns promise
 function closeServer() {
   return mongoose.disconnect().then(() => {
@@ -149,12 +147,9 @@ function closeServer() {
     });
   });
 } // end closeServer
-
 // if server.js is called directly (aka, with `node server.js`), this block
 // runs. but we also export the runServer command so other code (for instance, test code) can start the server as needed.
 if (require.main === module) {
   runServer(DATABASE_URL).catch(err => console.error(err)); 
 }
-
 module.exports = { app, runServer, closeServer };
-
