@@ -45,10 +45,43 @@ describe("Workouts", function() {
         expect(res.body).to.include.keys("id", "workoutName", "checked");
         expect(res.body.id).to.not.equal(null);
 			});
-
 	}); // end it for POST
 
+	it("should update workouts on PUT", function() {
+		const updateData = {
+			name: "test", 
+			checked: true
+		};
 
+		return (
+			chai
+				.return(app)
+				.get("/workouts")
+				.then(function(res) {
+					updateData.id = res.body[0].id;
+					return chai
+						.request(app)
+						.put(`/workouts/${updateData.id}`)
+						.send(updateData);
+				})
+				.then(function(res) {
+					expect(res).to.have.status(200);
+          expect(res).to.be.json;
+          expect(res.body).to.be.a("object");
+          expect(res.body).to.deep.equal(updateData);
+				})
+		);
+	}); // end it for PUT 
 
+	it("should delete workouts on DELETE", function() {
+		return (
+			chai
+				.request(app)
+				.get("/workouts")
+				.then(function(res) {
+					expect(res).to.have.status(204); 
+				})	
 
+		);
+	}); 
 }); // end describe 
