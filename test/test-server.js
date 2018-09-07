@@ -33,7 +33,7 @@ describe("Workouts", function() {
 	}); // end it for GET 
 
 	it("should add a workout on POST", function() {
-		const newWorkout = { workoutName: "test", checked: false };
+		const newWorkout = { workoutName: "test", musclesWorked: "test", equipment: "test" };
 		return chai 
 			.request(app)
 			.post("/workouts")
@@ -42,22 +42,28 @@ describe("Workouts", function() {
 				expect(res).to.have.status(201);
         expect(res).to.be.json;
         expect(res.body).to.be.a("object");
-        expect(res.body).to.include.keys("id", "workoutName", "checked");
+        expect(res.body).to.include.keys("id", "workout");
         expect(res.body.id).to.not.equal(null);
 			});
 	}); // end it for POST
 
 	it("should update workouts on PUT", function() {
 		const updateData = {
-			name: "test", 
-			checked: true
+			id: "testing",
+			workout: {
+				workoutName: "testing", 
+				musclesWorked: "testing",
+				equipment: "testing"
+			}
+			// checked: true
 		};
 
 		return (
 			chai
-				.return(app)
+				.request(app)
 				.get("/workouts")
 				.then(function(res) {
+					console.log(res);
 					updateData.id = res.body[0].id;
 					return chai
 						.request(app)
@@ -65,9 +71,10 @@ describe("Workouts", function() {
 						.send(updateData);
 				})
 				.then(function(res) {
-					expect(res).to.have.status(200);
+					expect(res).to.have.status(204);
           expect(res).to.be.json;
           expect(res.body).to.be.a("object");
+          // expect(res.body).to.have.header('Content-Type', 'application/json');
           expect(res.body).to.deep.equal(updateData);
 				})
 		);
@@ -79,7 +86,7 @@ describe("Workouts", function() {
 				.request(app)
 				.get("/workouts")
 				.then(function(res) {
-					expect(res).to.have.status(204); 
+					expect(res).to.have.status(200); 
 				})	
 
 		);
