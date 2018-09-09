@@ -3,6 +3,7 @@
 const chai = require("chai"); 
 const chaiHttp = require("chai-http"); 
 const { app, runServer, closeServer } = require("../server"); 
+const { TEST_DATABASE_URL, PORT } = require("../config");
 
 // lets us use expect style syntax in tests
 // such as `expect(1 + 1).to.equal(2);`
@@ -14,7 +15,7 @@ chai.use(chaiHttp);
 describe("Workouts", function() {
 	// start server before running tests 
 	before(function() {
-		return runServer(); 
+		return runServer(TEST_DATABASE_URL); 
 	});
 
 	// close server after tests 
@@ -49,13 +50,13 @@ describe("Workouts", function() {
 
 	it("should update workouts on PUT", function() {
 		const updateData = {
-			id: "testing",
+			id: "5b949498e7179a73d49078a0",
 			workout: {
-				workoutName: "testing", 
-				musclesWorked: "testing",
-				equipment: "testing"
+				workoutName: "test",
+				musclesWorked: "test", 
+				equipment: "test",
+				video: "test"
 			}
-			// checked: true
 		};
 
 		return (
@@ -72,10 +73,6 @@ describe("Workouts", function() {
 				})
 				.then(function(res) {
 					expect(res).to.have.status(204);
-          expect(res).to.be.json;
-          expect(res.body).to.be.a("object");
-          // expect(res.body).to.have.header('Content-Type', 'application/json');
-          expect(res.body).to.deep.equal(updateData);
 				})
 		);
 	}); // end it for PUT 
@@ -90,5 +87,5 @@ describe("Workouts", function() {
 				})	
 
 		);
-	}); 
+	}); // end it for DELETE
 }); // end describe 
