@@ -9,22 +9,32 @@
 </head>
 	
 <body>
-	<div role="navigation">
-		<input type="button" name="back-btn" value="Back" class="back-btn" onclick="window.location='index.html">
+
+	<div id="login-wrapper">
+		<!-- login header -->
+		<header>
+			<div class="login-heading"> Fitbuddy Login</div>
+		</header>
+
+		<main role='main'>
+			<form class="login-form" name="login-form">
+				<!-- username -->
+				<label for="username" class="input-label">
+					<input type="text" id="username" name="username" placeholder="Username">
+				</label><br>
+				<!-- password -->
+				<label for="password" class="input-label">
+					<input type="text" id="password" name="password" placeholder="Password">
+				</label><br>
+
+				<div class="login-btns">
+					<!-- back button -->
+					<input type="button" name="back-btn" value="Back" class="back-btn" onclick="window.location="index.html">
+					<!-- submit button -->
+					<button type="submit" class="login-btn">Login</button><br>
+				</div>
+			</form>
+		</main>
 	</div>
-
-	<main role='main'>
-		<form class="login-form" name="login-form">
-			<!-- username -->
-			<label for="username" class="input-label">
-				<input type="text" id="username" name="username" placeholder="Username">
-			</label><br>
-
-			<!-- password -->
-			<label for="password" class="input-label">
-				<input type="text" id="password" name="password" placeholder="Password">
-			</label>
-		</form>
-	</main>
 </body>
 </html>
