@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	margin: 0;
 }
 
 /*home page*/
@@ -54,24 +55,55 @@ nav {
 }
 
 /*login page*/
+.login-bg {
+	background: #07A8C3;
+	background: linear-gradient(to right bottom, #07A8C3 60%, #212531 40%);
+	min-height: 100vh;
+	
+}
+
 #login-wrapper {
-	position: fixed;
-  width: 400px;
-  height: 350px;
-  top: 50%;
-  left: 50%;
-  margin-top: -150px;
-  margin-left: -175px;
-  background: #07A8C3;
-  padding-top: 10px;
+	display: flex;
+	flex-direction: column;
+	background: #07A8C3;
+	align-items: center;
+	justify-content: center;
+	padding-top: 10%;
+	padding-left: 20%;
+	padding-right: 20%;
+	height: 400px;
+	margin-right: 20%;
+	margin-left:20%;
 }
 
 .login-heading {
 	color: white;
 	border-bottom: solid 1px white;
 	text-align: center;	
-	padding-top: 10px;
 	font-family: 'Righteous', cursive;
-	font-size: 40px;
+	font-size: 70px;
 	padding-bottom: 20px;
+	margin-bottom: 30px;
+}
+
+#username, #password {
+	width: 400px;
+	height: 70px;
+	margin-bottom: 10px;
+	font-size: 30px;
+	padding-left: 15px;
+}
+
+.back-btn-lg, .login-btn-lg {
+	height: 60px;
+	width: 40%;
+	font-size: 30px;
+	font-family: 'Righteous', cursive;
+	margin-left: 13px;
+	margin-right: 13px;
+}
+
+.login-btns {
+	display: flex;
+	justify-content: center;
 }
