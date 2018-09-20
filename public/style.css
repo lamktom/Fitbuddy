@@ -3,7 +3,6 @@
 	margin: 0;
 }
 
-/*home page*/
 nav {
 	height: 80px; 
 	width: 100%;
@@ -54,39 +53,38 @@ nav {
 	border: solid 1px #05CDFF;
 }
 
-/*login page*/
-.login-bg {
+.login-bg, .signup-bg {
 	background: #07A8C3;
 	background: linear-gradient(to right bottom, #07A8C3 60%, #212531 40%);
 	min-height: 100vh;
-	
 }
 
-#login-wrapper {
+#login-wrapper, #signup-wrapper {
 	display: flex;
 	flex-direction: column;
 	background: #07A8C3;
 	align-items: center;
-	justify-content: center;
+/*	justify-content: center;*/
 	padding-top: 10%;
 	padding-left: 20%;
 	padding-right: 20%;
 	height: 400px;
-	margin-right: 20%;
-	margin-left:20%;
+	margin-right: 25%;
+	margin-left:25%;
 }
 
-.login-heading {
+.login-heading, .signup-heading {
 	color: white;
 	border-bottom: solid 1px white;
 	text-align: center;	
 	font-family: 'Righteous', cursive;
 	font-size: 70px;
+	text-shadow: 4px 1px black, 0 2px black, 2px 0 black, 0 -1px black;
 	padding-bottom: 20px;
 	margin-bottom: 30px;
 }
 
-#username, #password {
+#username, #password, #fullname {
 	width: 400px;
 	height: 70px;
 	margin-bottom: 10px;
@@ -94,7 +92,7 @@ nav {
 	padding-left: 15px;
 }
 
-.back-btn-lg, .login-btn-lg {
+.register-btn, .login-btn-li, .submit-btn-su, .back-btn-su {
 	height: 60px;
 	width: 40%;
 	font-size: 30px;
@@ -103,7 +101,8 @@ nav {
 	margin-right: 13px;
 }
 
-.login-btns {
+.login-btns, .signup-btns {
 	display: flex;
 	justify-content: center;
 }
+

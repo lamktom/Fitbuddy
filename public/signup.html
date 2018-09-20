@@ -1,9 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="grid.css">
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 	<title>Fitbuddy Signup</title>
 </head>
+	
 <body>
+	<div class=signup-bg>
+		<div id="signup-wrapper">
+			<!-- login header -->
+			<header>
+				<div class="signup-heading"> Fitbuddy Signup</div>
+			</header>
 
+			<main role='main'>
+				<form class="signup-form" name="signup-form">
+					<!-- fullname -->
+					<label for="fullname" class="input-label">
+						<input type="text" id="fullname" name="fullname" placeholder="Full Name">
+					</label><br>
+					<!-- username -->
+					<label for="username" class="input-label">
+						<input type="text" id="username" name="username" placeholder="Username">
+					</label><br>
+					<!-- password -->
+					<label for="password" class="input-label">
+						<input type="text" id="password" name="password" placeholder="Password">
+					</label><br>
+
+					<div class="signup-btns">
+						<!-- back button -->
+						<input type="button" name="back-btn" value="Back" class="back-btn-su" onclick="window.location="index.html">
+						<!-- submit button -->
+						<button type="submit" class="submit-btn-su">Submit</button><br>
+					</div>
+				</form>
+			</main>
+		</div>
+	</div>
 </body>
 </html>
