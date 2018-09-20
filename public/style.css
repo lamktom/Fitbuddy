@@ -92,7 +92,7 @@ nav {
 	padding-left: 15px;
 }
 
-.register-btn, .login-btn-li, .submit-btn-su, .back-btn-su {
+.register-btn, .login-btn, .submit-btn, .back-btn {
 	height: 60px;
 	width: 40%;
 	font-size: 30px;
