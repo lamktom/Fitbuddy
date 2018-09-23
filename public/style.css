@@ -97,6 +97,7 @@ nav {
 	width: 40%;
 	font-size: 30px;
 	font-family: 'Righteous', cursive;
+	border-radius: 5px;
 	margin-left: 13px;
 	margin-right: 13px;
 }
