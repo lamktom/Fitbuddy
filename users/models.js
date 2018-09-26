@@ -1,17 +1,9 @@
 'use strict'; 
 const bcrypt = require('bcryptjs'); 
 const mongoose = require('mongoose');
+const { Workout } = require('../models');
 
 mongoose.Promise = global.Promise; 
-
-const workoutSchema = mongoose.Schema({
-	workout: {
-		workoutName: { type: String, required: true }, 
-		musclesWorked: { type: String, required: true },
-		equipment: { type: String, required: true },
-		video: { type: String }
-	}	
-}); // end workoutSchema  
 
 const UserSchema = mongoose.Schema({
 	firstName: {type: String, default: ''},
