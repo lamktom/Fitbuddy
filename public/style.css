@@ -53,6 +53,15 @@ nav {
 	border: solid 1px #05CDFF;
 }
 
+.warning-on {
+    margin-top: 15px;
+    text-align: center;
+    color: red;
+    background-color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
 .login-bg, .signup-bg {
 	background: #07A8C3;
 	background: linear-gradient(to right bottom, #07A8C3 60%, #212531 40%);
