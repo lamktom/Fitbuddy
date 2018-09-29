@@ -6,7 +6,7 @@ function getUserWorkouts(callback) {
 		headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
      	dataType: 'JSON'
     })
-    .done(function( data ) { // arr of user books
+    .done(function( data ) { // arr of user workouts
       callback(data);
     })
     .fail(function (err) {
@@ -31,7 +31,7 @@ function findWorkout(id, callback) {
 // calls API to ADD a User workout
 function addWorkout(workout) {
     $.ajax({
-       url: '/api/users/workout',
+       url: '/api/users/workouts',
        type: 'POST',
        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')},
        data: JSON.stringify(workout),
@@ -52,7 +52,7 @@ function addWorkout(workout) {
 function updateWorkout(id, updatedWorkout) {
     $('#successInfo').remove();
    $.ajax({
-       url: `/api/users/workouts/${id}/${updateWorkout}`,
+       url: `/api/users/workouts/${id}/${updatedWorkout}`,
        type: 'PUT',
        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')}
     })
@@ -66,16 +66,16 @@ function updateWorkout(id, updatedWorkout) {
     }) 
 }
 
-// calls API to DELETE User book
-function deleteBook(isbn) {
+// calls API to DELETE User workout
+function deleteWorkout(id) {
     $.ajax({
-       url: `/api/users/books/${isbn}`,
+       url: `/api/users/workout/${id}`,
        type: 'DELETE',
        headers: {"Authorization": 'Bearer ' + sessionStorage.getItem('token')}
     })
     .done(function( data ) {
-        // remove book from sessionStorage
-        sessionStorage.removeItem(isbn);
+        // remove workout from sessionStorage
+        sessionStorage.removeItem(id);
 
         // render homepage        
         window.location.replace("/home.html")
@@ -146,7 +146,7 @@ function registerUser(user) {
 }
 
 function updateSessionStorageWithBooks(data) {
-    data.books.forEach( (book, index) => {
-        sessionStorage.setItem(data.books[index].isbn, JSON.stringify(data.books[index]));
+    data.workouts.forEach( (workout, index) => {
+        sessionStorage.setItem(data.workouts[index].id, JSON.stringify(data.workouts[index]));
     })
 }
