@@ -38,7 +38,7 @@ app.get("/workouts", (req, res) => {
 // GET request by ID 
 app.get("/workouts/:id", (req, res) => {
   Workout.findById(req.params.id)
-  .then(restaurant => res.json(restaurant.serialize()))
+  .then(workout => res.json(workout.serialize()))
   .catch(err => {
     console.error(err);
     res.status(500).json({ message: "Whoops, looks like something went wrong" });
