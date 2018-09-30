@@ -1,5 +1,6 @@
 "use strict"; 
 
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser'); 
 const morgan = require('morgan');
@@ -7,15 +8,43 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
+// import auth
+const { router: usersRouter } = require('./users');
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+
 // import PORT and DATABASE_URL from config.js
 const { PORT, DATABASE_URL } = require("./config");
 // import Workout from model.js
 const { Workout } = require("./models");
+// create express app
 const app = express();
 const jsonParser = bodyParser.json()
 
 app.use(express.json()); 
 app.use(express.static('public'));
+
+// logging
+app.use(morgan('common'));
+
+// CORS
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+  if (req.method === 'OPTIONS') {
+    return res.send(204);
+  }
+  next();
+});
+
+// register strategy 
+passport.use(localStrategy);
+passport.use(jwtStrategy);
+
+// serve static assets from public folder
+
+
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });

@@ -99,7 +99,8 @@ router.put('/workouts/:id/:rating', jwtAuth, jsonParser, (req, res) => {
 });
 
 // Post to register a new user
-router.post('/', jsonParser, (req, res) => {
+router.post('/api/users', jsonParser, (req, res) => {
+  // make sure username and password are defined 
   const requiredFields = ['username', 'password'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
@@ -112,6 +113,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
+  // make sure all fields are strings
   const stringFields = ['username', 'password', 'firstName', 'lastName'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
@@ -152,6 +154,7 @@ router.post('/', jsonParser, (req, res) => {
       min: 2
     },
     password: {
+      // password must be at least 6 characters 
       min: 6,
       // bcrypt truncates after 72 characters, so let's not give the illusion
       // of security by storing extra (unused) info
@@ -188,7 +191,9 @@ router.post('/', jsonParser, (req, res) => {
   firstName = firstName.trim();
   lastName = lastName.trim();
 
-  return User.find({username})
+  // check if there is already an existing user with requested name
+  return User
+    .find({username})
     .count()
     .then(count => {
       if (count > 0) {
@@ -204,6 +209,7 @@ router.post('/', jsonParser, (req, res) => {
       return User.hashPassword(password);
     })
     .then(hash => {
+      // create new user object 
       return User.create({
         username,
         password: hash,
@@ -235,26 +241,6 @@ router.get('/', (req, res) => {
 });
 
 module.exports = {router};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

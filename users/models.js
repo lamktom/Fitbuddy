@@ -24,11 +24,13 @@ UserSchema.methods.serialize = function() {
 UserSchema.methods.validatePassword = function(password) {
     console.log(this.password);
     console.log(password);
+  // use bcrypt to compare plain text value passed to function(password) 
+  // with hashed value stored on the user object (this.password)
   return bcrypt.compare(password, this.password);
 };
 
 UserSchema.statics.hashPassword = function(password) {
-  return bcrypt.hash(password, 10);
+  return bcrypt.hash(password, 10); //10 rounds of salted algorithm used
 };
 
 const User = mongoose.model('User', UserSchema);

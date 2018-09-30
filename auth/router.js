@@ -15,6 +15,7 @@ const createAuthToken = function(user) {
 	});
 };
 
+// session: false to stop Passport form adding session cookies 
 const localAuth = passport.authenticate('local', {session: false}); 
 
 router.use(bodyParser.json()); 
@@ -29,7 +30,7 @@ router.post('/login', localAuth, (req, res) => {
 	console.log('authenticated user');
 	const authToken = createAuthToken(req.user.serialize()); 
 
-	res.json({token: authToken});
+	res.json({authToken});
 })
 
 const jwtAuth = passport.authenticate('jwt', {session: false}); 
