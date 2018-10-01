@@ -42,8 +42,16 @@ passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 // serve static assets from public folder
+app.use(express.static('public'));
 
+app.use('/api/users/', usersRouter);
+app.use('/api/auth/', authRouter);
 
+const jwtAuth = passport.authenticate('jwt', { session: false });
+
+app.use('*', (req, res) => {
+  return res.status(404).json({ message: 'Nothing to see here' });
+});
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");

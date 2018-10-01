@@ -30,7 +30,7 @@ nav {
 }
 
 .deadlift-img {
-	background-image: url('./deadlift.jpg'); 
+	background-image: url('deadlift.jpg'); 
 	height: 1000px;
 	width: 70%;
 	background-position: center;
