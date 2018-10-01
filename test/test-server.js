@@ -64,7 +64,7 @@ describe("Workouts", function() {
 				.request(app)
 				.get("/workouts")
 				.then(function(res) {
-					console.log(res);
+					// console.log(res);
 					updateData.id = res.body[0].id;
 					return chai
 						.request(app)
