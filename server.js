@@ -50,13 +50,10 @@ app.use('/api/auth/', authRouter);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
-app.use('*', (req, res) => {
-  return res.status(404).json({ message: 'Nothing to see here' });
-});
-
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
+
 // GET request to /workouts 
 app.get("/workouts", (req, res) => {
   Workout.find()
@@ -144,7 +141,7 @@ app.delete("/workouts/:id", (req, res) => {
 
 // catch all endpoint if client makes request to non-existent endpoint
 app.use("*", function(req, res) {
-  res.status(404).json({ message: "404 Not Found" });
+  res.status(404).json({ message: "404 Nothing to see here" });
 });
 
 // declare server 
