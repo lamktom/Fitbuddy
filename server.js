@@ -50,6 +50,13 @@ app.use('/api/auth/', authRouter);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
+// from lesson, to protect endpoints
+app.get('/api/protected', jwtAuth, (req, res) => {
+  return res.json({
+    data: 'rosebud'
+  });
+});
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });

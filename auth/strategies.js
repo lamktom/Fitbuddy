@@ -9,7 +9,7 @@ const { JWT_SECRET } = require('../config');
 const localStrategy = new LocalStrategy((username, password, callback) => {
   
   let user;
-  User.findOne({ username })
+  User.findOne({ username: username })
     .then(_user => {
       user = _user;
       if (!user) { 
@@ -29,7 +29,7 @@ const localStrategy = new LocalStrategy((username, password, callback) => {
           message: 'Incorrect password'
         });
       }
-        // password is valid, return user
+      // password is valid, return user
       return callback(null, user);
     })
     .catch(err => {
@@ -40,6 +40,7 @@ const localStrategy = new LocalStrategy((username, password, callback) => {
     });
 });
 
+// define new strategy and pass in same secret key used to sign the tokens
 const jwtStrategy = new JwtStrategy(
   {
     secretOrKey: JWT_SECRET,
