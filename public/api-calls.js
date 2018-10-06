@@ -113,7 +113,7 @@ function authenticateUser() {
         $('.auth-warning').removeClass('warning-on').text('');
         $('.login-btn').addClass('hidden');
 
-        getUserBooks(updateSessionStorageWithBooks);
+        getUserWorkouts(updateSessionStorageWithWorkouts);
 
         window.location.replace("/home.html");
     })
@@ -135,7 +135,7 @@ function registerUser(user) {
     .done(function( data ) {
         $('.auth-warning').removeClass('warning-on').text('');
 
-        getUserBooks(updateSessionStorageWithBooks);
+        getUserWorkouts(updateSessionStorageWithWorkouts);
         
         window.location.replace("/home.html");
     })
@@ -145,7 +145,7 @@ function registerUser(user) {
     })
 }
 
-function updateSessionStorageWithBooks(data) {
+function updateSessionStorageWithWorkouts(data) {
     data.workouts.forEach( (workout, index) => {
         sessionStorage.setItem(data.workouts[index].id, JSON.stringify(data.workouts[index]));
     })
