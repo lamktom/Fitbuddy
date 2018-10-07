@@ -10,13 +10,17 @@ const passport = require('passport');
 mongoose.Promise = global.Promise;
 
 // import auth
-const { router: usersRouter } = require('./users');
-const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+const {router: usersRouter} = require('./users');
+const {router: authRouter, localStrategy, jwtStrategy} = require('./auth');
 
 // import PORT and DATABASE_URL from config.js
-const { PORT, DATABASE_URL } = require("./config");
+const {PORT, DATABASE_URL} = require("./config");
+
 // import Workout from model.js
-const { Workout } = require("./models");
+const {Workout} = require("./models");
+// import Users from users/models.js
+const {User} = require("./users/models"); 
+
 // create express app
 const app = express();
 const jsonParser = bodyParser.json()
@@ -145,6 +149,32 @@ app.delete("/workouts/:id", (req, res) => {
     .then(workout => res.status(204).end())
     .catch(err => res.status(500).json({ message: "Whoops, something went wrong" }));
 });
+
+//Registering a user
+app.post("/api/users", (req, res) => {
+  const requiredFields = ["firstName", "lastName", "username", "password"]; 
+  for (let i = 0; i < requiredFields.length; i++) {
+    const field = requiredFields[i];
+    
+    if (!(field in req.body)) {
+      const message = `Missing ${field}`; 
+      console.error(message); 
+      return res.status(400).send(message); 
+    }
+  }
+  User.create({ 
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    username: req.body.username,
+    password: req.body.password
+    
+  })
+  .then(user => res.status(201).json(user.serialize()))
+  .catch(err => {
+    console.error(err);
+    res.status(500).json({ message: "Whoops, something went wrong" }); 
+  });
+})
 
 // catch all endpoint if client makes request to non-existent endpoint
 app.use("*", function(req, res) {

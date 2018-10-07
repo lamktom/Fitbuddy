@@ -17,7 +17,7 @@ const workoutSchema = mongoose.Schema({
 const UserSchema = mongoose.Schema({
 	firstName: {type: String, default: ''},
 	lastName: {type: String, default: ''},
-  username: { type: String, required: true, unique: true},
+  username: { type: String, required: truze, unique: true},
   password: { type: String, required: true},
   workout: [workoutSchema]
 });

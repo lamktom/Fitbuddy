@@ -100,7 +100,7 @@ nav {
 	margin-bottom: 20px;
 }
 
-#username, #password, #fullname {
+#username, #password, #firstName, #lastName {
 	width: 400px;
 	height: 70px;
 	margin-bottom: 10px;

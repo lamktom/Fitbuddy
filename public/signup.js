@@ -2,13 +2,13 @@
 $('.signup-form').submit(function(event) {
 	event.preventDefault(); 
 
-	const name = $('#fullname').val(); 
-	if(typeof $('#fullname').val() != 'undefined') {
+	// const name = $('#fullname').val(); 
+	// if(typeof $('#fullname').val() != 'undefined') {
 
-	}
+	// }
 	
-	const firstName = $('#fullname').val().split(" ")[0]; 
-	const lastName = $('#fullname').val().split(" ")[1]; 
+	const firstName = $('#firstName').val(); 
+	const lastName = $('#lastName').val(); 
 	const username = $('#username').val(); 
 	const password = $('#password').val();
 
@@ -18,6 +18,7 @@ $('.signup-form').submit(function(event) {
 		username,
 		password
 	}
+	console.log(user);
 	// call api to register user
 	registerUser(user); 
 });
