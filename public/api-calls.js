@@ -133,6 +133,7 @@ function registerUser(user) {
        dataType: 'JSON'
     })
     .done(function( data ) {
+        console.log("WHERE ARE YOU?!");
         $('.auth-warning').removeClass('warning-on').text('');
 
         getUserWorkouts(updateSessionStorageWithWorkouts);
