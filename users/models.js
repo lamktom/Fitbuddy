@@ -1,7 +1,7 @@
 'use strict'; 
 const bcrypt = require('bcryptjs'); 
 const mongoose = require('mongoose');
-const { Workout } = require('../models');
+const {Workout} = require('../models');
 
 mongoose.Promise = global.Promise; 
 
