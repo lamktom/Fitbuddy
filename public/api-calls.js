@@ -136,7 +136,7 @@ function registerUser(user) {
         console.log("WHERE ARE YOU?!");
         $('.auth-warning').removeClass('warning-on').text('');
 
-        // getUserWorkouts(updateSessionStorageWithWorkouts);
+        getUserWorkouts(updateSessionStorageWithWorkouts);
         
         window.location.replace("/home.html");
     })
