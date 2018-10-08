@@ -1,11 +1,6 @@
 // to handle user submitting registration form
 $('.signup-form').submit(function(event) {
 	event.preventDefault(); 
-
-	// const name = $('#fullname').val(); 
-	// if(typeof $('#fullname').val() != 'undefined') {
-
-	// }
 	
 	const firstName = $('#firstName').val(); 
 	const lastName = $('#lastName').val(); 

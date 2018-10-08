@@ -132,15 +132,15 @@ function registerUser(user) {
        contentType: 'application/json',
        dataType: 'JSON'
     })
-    .done(function( data ) {
+    .done(function(data) {
         console.log("WHERE ARE YOU?!");
         $('.auth-warning').removeClass('warning-on').text('');
 
-        getUserWorkouts(updateSessionStorageWithWorkouts);
+        // getUserWorkouts(updateSessionStorageWithWorkouts);
         
         window.location.replace("/home.html");
     })
-    .fail(function (err) {
+    .fail(function(err) {
         console.log(err);
         $('.auth-warning').addClass('warning-on').text(`${err.responseJSON.location}: ${err.responseJSON.message}`);
     })
