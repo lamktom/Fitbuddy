@@ -39,7 +39,7 @@ nav {
   float: right;
 }
 
-.muscle-groups {
+.workoutsContainer {
 	width: 30%;
 	height:1000px;
 	float: left;
@@ -47,7 +47,7 @@ nav {
 	font-family: 'Righteous', cursive;
 }
 
-.biceps, .triceps, .chest, .quads, .calves, .traps, .lats, .hamstrings {
+.userWorkouts {
 	font-family: 'Righteous', cursive;
 	padding: 30px; 
 	border: solid 1px #05CDFF;
