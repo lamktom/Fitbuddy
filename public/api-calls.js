@@ -133,12 +133,11 @@ function registerUser(user) {
        dataType: 'JSON'
     })
     .done(function(data) {
-        console.log("WHERE ARE YOU?!");
-        $('.auth-warning').removeClass('warning-on').text('');
+      $('.auth-warning').removeClass('warning-on').text('');
 
-        getUserWorkouts(updateSessionStorageWithWorkouts);
-        
-        window.location.replace("/home.html");
+      getUserWorkouts(updateSessionStorageWithWorkouts);
+      
+      window.location.replace("/home.html");
     })
     .fail(function(err) {
         console.log(err);
