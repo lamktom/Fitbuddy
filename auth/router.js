@@ -9,6 +9,7 @@ const router = express.Router();
 
 //used to create JWTs 
 const createAuthToken = user => {
+	// jwt.sign used to create a signed JWT
 	return jwt.sign({user}, config.JWT_SECRET, {
 		subject: user.username,
 		expiresIn: config.JWT_EXPIRY,
@@ -32,7 +33,7 @@ router.post('/login', localAuth, (req, res) => {
 	const authToken = createAuthToken(req.user.serialize()); 
 
 	res.json({authToken});
-})
+});
 
 const jwtAuth = passport.authenticate('jwt', {session: false}); 
 
